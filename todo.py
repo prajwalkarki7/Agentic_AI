@@ -26,8 +26,8 @@ def main():
         print("\n--- TODO List ---")
         if not todo_list:
             print("List is empty.")
-        for idx, todo in enumerate(todo_list, 1):
-            print(f"{idx}. {todo}")
+        for todo in todo_list:
+            print(f"id:{todo.id} | title:{todo.title} | description:{todo.description} | completed:{todo.completed}")
         
         print("\nOptions: Add  Complete  Exit")
         choice = input("Choose an option: ")
@@ -47,7 +47,7 @@ def main():
          if todo_to_update:
             todo_to_update.completed = True
             session.commit()
-            print(f"Success! ' is now marked as completed.")
+            print(f"Success! '{target_title}' is now marked as completed.")
          else:
             print(f"Error: No TODO found with the title '{target_title}'.")
 
